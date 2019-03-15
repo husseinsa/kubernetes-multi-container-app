@@ -1,0 +1,18 @@
+﻿version: '3'
+services:
+  backend-service:
+    image: backend:v1
+    container_name: backend
+    build:
+      context: back-end
+    ports:
+      - 9000:80
+  frontend-service:
+    image: frontend:v1
+    container_name: frontend
+    build:
+      context: front-end
+    ports:
+      - 4200:80
+    depends_on: 
+      - backend-service
